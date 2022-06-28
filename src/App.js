@@ -1,21 +1,21 @@
 // import React from "react";
 import { useState, useEffect } from "react" 
-import { BrowserRouter as Router, Route, Routes} from "react-router-dom";  //these are for making the website not reloading alot
+import { BrowserRouter as Router, Route, Routes} from "react-router-dom";  //these are for making the website not reloading alot 
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
 import AddTask from "./components/AddTask";
 import Footer from "./components/Footer";
 import About from "./components/About";
 
-function App() {
+function App() { 
   // Declare a new state variable, which we'll call "showAddTask"
-  const [showAddTask, setShowAddTask] = useState(false)
+  const [showAddTask, setShowAddTask] = useState(false);
 
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState([]); 
 
   //useEffect is used for create side effects or deal with side effects(if you want something to happen when the page loads)
   useEffect(() => {
-    const getTasks = async () => {
+    const getTasks = async () => { //this is a function that is being called when the page loads and it is being called in the useEffect hook
       const tasksFromServer = await fetchTasks()
       setTasks(tasksFromServer)
     }
@@ -41,7 +41,7 @@ function App() {
   
 
   // Add Task
-  const addTask = async (task) => {
+  const addTask = async (task) => { 
     const res = await fetch("http://localhost:5000/tasks", {
       method: "POST",
       headers: {
