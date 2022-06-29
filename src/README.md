@@ -232,13 +232,14 @@ Recap :
 
 1. We call root.render() with the <Welcome name="Patricia" /> element.
 2. React calls the Welcome component with {name: 'Patricia'} as the props.
-3. Our Welcome component returns a <h1>Hello, Patricia</h1> element as the result.
-4. React DOM efficiently updates the DOM to match <h1>Hello, Patricia</h1>.
+3. Our Welcome component returns a Hello, Patricia element with h1 as the result.
+4. React DOM efficiently updates the DOM to match Hello, Patricia with h1.
 
 
 ##### Note: Always start component names with a capital letter.
 
 React treats components starting with lowercase letters as DOM tags. For example, <div /> represents an HTML div tag, but <Welcome /> represents a component and requires Welcome to be in scope.
+
 
 
 ### Props
