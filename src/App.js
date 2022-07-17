@@ -6,6 +6,7 @@ import Tasks from "./components/Tasks";
 import AddTask from "./components/AddTask";
 import Footer from "./components/Footer";
 import About from "./components/About";
+import StateProps from "./StateProps"; //dummy
 
 function App() { 
   // Declare a new state variable, which we'll call "showAddTask"
@@ -98,6 +99,7 @@ function App() {
   return (
     <Router>
       <div className="container">
+        <StateProps />
         <Header
           onAdd={() => setShowAddTask(!showAddTask)}
           showAdd={showAddTask}

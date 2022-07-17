@@ -260,7 +260,7 @@ const element = <Welcome name="Patricia" />; //Focus on this one too!
 root.render(element);
 ```
 
-
+It is not recommend to change the props value directly such as props.name = "Another"
 
 ### Composing Components
 
@@ -337,7 +337,31 @@ return (
 
 ```
 
-## State + Lifescycles
+## State + Lifecycles
+
+### [State](https://www.freecodecamp.org/news/what-is-state-in-react-explained-with-examples/)
+
+State is used with React Component Classes to make them dynamic. It enables the component to keep track of changing information in between renders. More specifically, the state of a component is an object that holds information that may change over the lifetime of the component.
+
+State allows us to manage changing data in an application. It's defined as an object where we define key-value pairs specifying various data we want to track in the application.
+
+### State vs Props
+1. Props are immutable. Once set they can’t be changed, while State is observable. It can hold data that may change over time
+2. Props can be used in either function or class components, while State is limited to class components
+3. Props are set by the parent component while State is updated by event handlers.
+4. Props are read-only while state changes can be asynchronous.
+5. Props can't be modified while state can be modified using this.setState
+
+Note : In this one I'll use 
+
+
+
+
+### Lifecycles
+
+In general, we might define a lifecycle as birth, growth & death. And our React components follow this cycle as well: they’re created (mounted on the DOM), they experience growth (by updating) and they die (unmounted from the DOM). This is the component lifecycle!
+
+Within the lifecycle of a component, there are different phases. These phases each have their own lifecycle methods. 
 
 
 

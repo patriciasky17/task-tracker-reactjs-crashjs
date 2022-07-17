@@ -17,6 +17,12 @@
       "day": "Monday",
       "reminder": true,
       "id": 3
+    },
+    {
+      "text": "Belajar React",
+      "day": "2 Juli 2022",
+      "reminder": true,
+      "id": 4
     }
   ]
 }
