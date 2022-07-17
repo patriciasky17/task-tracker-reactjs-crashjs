@@ -32,7 +32,7 @@ function App() {
     return data
   }
 
-  //Fetch Tasks
+  //Fetch Task
   const fetchTask = async (id) => {
     const res = await fetch(`http://localhost:5000/tasks/${id}`);
     const data = await res.json()
@@ -159,20 +159,20 @@ export default App;
 // import logo from './logo.svg'; //spinning react logo
 // import './App.css'; // basic styling
 
-{/* <header className="App-header">
-    <img src={logo} className="App-logo" alt="logo" />
-    <p>
-      Edit <code>src/App.js</code> and save to reload.
-    </p>
-    <a
-      className="App-link"
-      href="https://reactjs.org"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Learn React
-    </a>
-  </header> */}
+//  <header className="App-header">
+//     <img src={logo} className="App-logo" alt="logo" />
+//     <p>
+//       Edit <code>src/App.js</code> and save to reload.
+//     </p>
+//     <a
+//       className="App-link"
+//       href="https://reactjs.org"
+//       target="_blank"
+//       rel="noopener noreferrer"
+//     >
+//       Learn React
+//     </a>
+//   </header> 
 
   // const name ="Patricia";
   // const x = true;
