@@ -345,16 +345,14 @@ State is used with React Component Classes to make them dynamic. It enables the 
 
 State allows us to manage changing data in an application. It's defined as an object where we define key-value pairs specifying various data we want to track in the application.
 
-### State vs Props
+### [State vs Props](https://www.freecodecamp.org/news/react-js-for-beginners-props-state-explained/)
 1. Props are immutable. Once set they can’t be changed, while State is observable. It can hold data that may change over time
 2. Props can be used in either function or class components, while State is limited to class components
 3. Props are set by the parent component while State is updated by event handlers.
 4. Props are read-only while state changes can be asynchronous.
 5. Props can't be modified while state can be modified using this.setState
 
-Note : In this one I'll use 
-
-
+Note : Click on the sub-title to see the difference!
 
 
 ### Lifecycles
@@ -363,22 +361,48 @@ In general, we might define a lifecycle as birth, growth & death. And our React 
 
 Within the lifecycle of a component, there are different phases. These phases each have their own lifecycle methods. 
 
+Each component in React has a lifecycle which you can monitor and manipulate during its three main phases.
 
+The three phases are: Mounting, Updating, and Unmounting.
 
 
 ## Hooks
 
-### useState
+### [useState](https://www.geeksforgeeks.org/what-is-usestate-in-react/#:~:text=The%20useState%20%28%29%20is%20a%20Hook%20that%20allows,from%20React%20and%20the%20other%20is%20functional%20components.)
 
 'useState' is a hook that is used to create a state variable.
 
-### useEffect
+The useState() is a Hook that allows you to have state variables in functional components . so basically useState is the ability to encapsulate local state in a functional component. The useState hook is a special function that takes the initial state as an argument and returns an array of two entries. UseState encapsulate only singular value from the state, for multiple state need to have useState calls.
+
+
+Syntax: The first element is the initial state and the second one is a function that is used for updating the state.
+
+```
+const [state, setState] = useState(initialstate)
+```
+
+We can also pass a function as an argument if the initial state has to be computed. And the value returned by the function will be used as the initial state.
+
+The below function is oneline function which computes the sum of two numbers and will be set as the initial state.
+
+```
+const [sum, setsum] = useState(function generateRandomInteger(){5+7);})
+```
+
+Importing: To use useState you need to import useState from react as shown below:
+
+```
+import React, { useState } from "react"
+```
+
+
+### [useEffect](https://www.codespeedy.com/what-is-useeffect-hook-in-react-js/#:~:text=The%20purpose%20of%20the%20useEffect%20hook%20in%20React,anything%20that%20affects%20something%20outside%20our%20function%20scope.)
 
 
 
 ## Form + CRUD
 
-this is a function that is being called when the page loads and it is being called in the useEffect hook and it is being called in the addTask function 
+this is a function that is being called when the page loads and it is being called with useEffect hook
 
 ### Add/Create
 ```
@@ -417,7 +441,15 @@ This method sends a response (with the correct content-type) that is the paramet
 
 ### Delete 
 
+```
+  const deleteTask = async (id) => {  
+    await fetch(`http://localhost:5000/tasks/${id}`, {
+      method: "DELETE"
+    })
 
+    setTasks(tasks.filter((task) => task.id !== id))
+  };
+```
 
 
 
@@ -444,10 +476,29 @@ This method sends a response (with the correct content-type) that is the paramet
 
 ### && Operator
 
+&& is for using ternary operation without else
 
-### Inline if-else
+Note: Look at App.js line 113 for the clear example
 
+```
+{showAddTask && <AddTask onAdd={addTask} />}
+```
 
+### Inline if-else (Ternary Operator)
+
+The code that below this check if the length of the tasks exists or not. If it exists, show the tasks, if there is none, show "No Tasks to Show".
+
+```
+    {tasks.length > 0 ? (
+      <Tasks
+        tasks={tasks}
+        onDelete={deleteTask}
+        onToggle={toggleReminder}
+      />
+    ) : (
+      'No Tasks To Show'
+    )}
+```
 
 
 ## Composition vs Inheritance
