@@ -42,8 +42,8 @@ export default Header
 //     return (
 //         <header>
 //             <h1 style= {headingStyle}>{title}</h1>
-            {/* <Button color="blue" text="Hello 2"/>
-            <Button color="red" text="Hello 3"/> */}
+            // {/* <Button color="blue" text="Hello 2"/>
+            // <Button color="red" text="Hello 3"/> */}
 //         </header>
 //     )
 // }

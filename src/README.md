@@ -400,9 +400,15 @@ import React, { useState } from "react"
 
 
 
-## Form + CRUD
+## [Form + CRUD + Fetch](https://jasonwatmore.com/post/2020/02/01/react-fetch-http-post-request-examples)
+
 
 this is a function that is being called when the page loads and it is being called with useEffect hook
+
+Method -> POST(Create), GET(Read), PUT(Update), DELETE(Delete)
+
+The Content-Type header is used to indicate the media type of the resource. The media type is a string sent along with the file indicating the format of the file. For example, for image file its media type will be like image/png or image/jpg, etc.
+
 
 ### Add/Create
 ```
@@ -427,8 +433,6 @@ The res.json() function sends a JSON response.
 This method sends a response (with the correct content-type) that is the parameter converted to a JSON string using the JSON.stringify() method.
 
 
-
-
 ### Read
 
 
@@ -436,10 +440,38 @@ This method sends a response (with the correct content-type) that is the paramet
 
 ### Update
 
+This one is only updating if we want to add the reminder for the spesific tasks.
+
+```
+  // Toggle reminder
+  const toggleReminder = async (id) => {
+    const taskToToggle = await fetchTask(id);
+    const updTask = { ...taskToToggle,
+    reminder: !taskToToggle.reminder};
+
+    const res = await fetch( `http://localhost:5000/tasks/${id}`,{
+      method: 'PUT',
+      headers: {
+        'Content-type' : "application/json"
+      },
+      body: JSON.stringify(updTask)
+    })
+
+    const data = await res.json()
+
+    setTasks(
+      tasks.map((task) =>
+        task.id === id ? { ...task, reminder: data.reminder } : task
+      )
+    );
+  }
+```
 
 
 
 ### Delete 
+
+This one is for deleting spesific tasks
 
 ```
   const deleteTask = async (id) => {  
@@ -452,11 +484,6 @@ This method sends a response (with the correct content-type) that is the paramet
 ```
 
 
-
-
-
-
-
 ## Lists and Keys
 
 
@@ -466,10 +493,9 @@ This method sends a response (with the correct content-type) that is the paramet
 
 
 
-## Fetch
-
-
 ## Event Handler
+
+
 
 
 ## Conditional Rendering
